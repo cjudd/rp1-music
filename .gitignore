@@ -1,4 +1,6 @@
 /target/
+
+### Maven ###
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -23,3 +25,11 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Node ###
+node/
+node_modules/
+npm-debug.log
+
+### webpack ###
+src/main/resources/static/bundle/
