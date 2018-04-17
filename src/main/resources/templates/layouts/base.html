@@ -29,7 +29,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="${pageContext.request.contextPath}/admin">Administration</a>
+          <a href="${pageContext.request.contextPath}/admin" sec:authorize="${hasAuthority('Admin')}">Administration</a>
         </li>
         <li>
           <a href="${pageContext.request.contextPath}/signup">Sign Up</a>
