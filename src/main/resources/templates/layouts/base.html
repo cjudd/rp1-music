@@ -32,19 +32,20 @@
           <a href="${pageContext.request.contextPath}/admin">Administration</a>
         </li>
         <li>
-          <a href="${pageContext.request.contextPath}/logout">Logout</a>
-        </li>
-        <li>
           <a href="${pageContext.request.contextPath}/signup">Sign Up</a>
         </li>
-        <li>
-          <a href="${pageContext.request.contextPath}/login">Log In</a>
-        </li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="javascript: document.logoutForm.submit()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
       </ul>
 
     </div>
   </div>
 </nav>
+
+<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+  <input hidden="hidden" type="submit" value="Logout"/>
+</form>
 
 <div class="container">
   <div class="row">
