@@ -32,7 +32,7 @@
           <a href="${pageContext.request.contextPath}/admin" sec:authorize="${hasAuthority('Admin')}">Administration</a>
         </li>
         <li>
-          <a href="${pageContext.request.contextPath}/signup">Sign Up</a>
+          <a href="${pageContext.request.contextPath}/signup" sec:authorize="!isAuthenticated()" >Sign Up</a>
         </li>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="javascript: document.logoutForm.submit()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
