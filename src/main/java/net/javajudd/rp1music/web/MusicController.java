@@ -47,7 +47,7 @@ public class MusicController {
             for (Long songId : selectedSongs) {
                 Song song = songRepository.getOne(songId);
                 if (!currentUser.getSongs().contains(song)) {
-                    currentUser.getSongs().add(song);
+                    currentUser.addSong(song);
                 }
                 logger.info("{} added {} to their library.", currentUser.getEmail(), song.getName());
             }

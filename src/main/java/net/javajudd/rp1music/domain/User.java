@@ -6,6 +6,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static javax.persistence.CascadeType.REMOVE;
@@ -30,7 +31,14 @@ public class User {
     @Column(nullable = false)
     private boolean enabled;
 
-    @OneToMany(cascade = REMOVE)
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "user_song",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "song_id")
+    )
     private List<Song> songs = new ArrayList<>();
 
     public long getId() {
@@ -75,6 +83,11 @@ public class User {
     }
 
     public List<Song> getSongs() {
-        return songs;
+        return Collections.unmodifiableList(songs);
+    }
+
+    public void addSong(Song song) {
+        songs.add(song);
+        song.getUsers().add(this);
     }
 }
