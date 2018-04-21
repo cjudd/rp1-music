@@ -2,10 +2,11 @@
 
 ## Description
 
-RP1 is a basic Java and Spring-Boot app used for workshops such as the 15 Factor Workshop.
+RP1 is a basic Java and Spring-Boot app used for the [12(15) Factor App Workshop](https://github.com/cjudd/15-factor-app-workshop).
 
 ## Requirements
 - Java 8
+- Java IDE/Editor
 - Docker
 
 ## Running
