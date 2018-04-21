@@ -19,7 +19,7 @@ public class Release {
     @Column(nullable = false)
     private String name;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = true)
     private String barcode;
 
     @Column(nullable = false)
