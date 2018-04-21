@@ -5,6 +5,11 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static javax.persistence.CascadeType.REMOVE;
+
 @Entity
 public class User {
 
@@ -24,6 +29,9 @@ public class User {
 
     @Column(nullable = false)
     private boolean enabled;
+
+    @OneToMany(cascade = REMOVE)
+    private List<Song> songs = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -64,5 +72,9 @@ public class User {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
     }
 }
